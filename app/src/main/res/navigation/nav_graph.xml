@@ -1,65 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/moodFragment">
+    android:id="@+id/main_graph"
+    app:startDestination="@id/bottom_home">
 
     <fragment
-        android:id="@+id/moodFragment"
-        android:name="com.example.carrace.MoodFragment"
-        android:label="activity_mood"
-        tools:layout="@layout/fragment_mood">
-        <action
-            android:id="@+id/action_moodFragment_to_viewFragment"
-            app:destination="@id/fragmentview"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/fragmentview"
-        android:name="com.example.carrace.FragmentView"
-        android:label="activity_fragment_view"
-        tools:layout="@layout/fragment_view">
-    </fragment>
-    <fragment
-        android:id="@+id/homeFragment2"
+        android:id="@+id/bottom_home"
         android:name="com.example.carrace.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment2_to_MMSFragment"
-            app:destination="@id/MMSFragment" />
+            android:id="@+id/action_home_to_mms"
+            app:destination="@id/bottom_mms" />
     </fragment>
     <fragment
-        android:id="@+id/MMSFragment"
+        android:id="@+id/bottom_mms"
         android:name="com.example.carrace.MMSFragment"
         android:label="fragment_mms"
         tools:layout="@layout/fragment_mms" >
         <action
-            android:id="@+id/action_MMSFragment_to_sportFragment"
-            app:destination="@id/sportFragment" />
+            android:id="@+id/action_mms_to_sport"
+            app:destination="@id/bottom_sport" />
     </fragment>
     <fragment
-        android:id="@+id/selfImpFragment"
-        android:name="com.example.carrace.SelfImpFragment"
-        android:label="fragment_self_imp"
-        tools:layout="@layout/fragment_self_imp" >
-        <action
-            android:id="@+id/action_selfImpFragment_to_moodFragment"
-            app:destination="@id/moodFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/sportFragment"
+        android:id="@+id/bottom_sport"
         android:name="com.example.carrace.SportFragment"
         android:label="fragment_sport"
         tools:layout="@layout/fragment_sport" >
         <action
-            android:id="@+id/action_sportFragment_to_selfImpFragment"
-            app:destination="@id/selfImpFragment" />
+            android:id="@+id/action_sport_to_selfimp"
+            app:destination="@id/bottom_self_imp" />
     </fragment>
+    <fragment
+        android:id="@+id/bottom_self_imp"
+        android:name="com.example.carrace.SelfImpFragment"
+        android:label="fragment_selfimp"
+        tools:layout="@layout/fragment_self_imp" >
+        <action
+            android:id="@+id/action_selfimp_to_mood"
+            app:destination="@id/bottom_emotion" />
+    </fragment>
+    <fragment
+        android:id="@+id/bottom_emotion"
+        android:name="com.example.carrace.MoodFragment"
+        android:label="fragment_mood"
+        tools:layout="@layout/fragment_mood" >
+        <action
+            android:id="@+id/action_mood_to_view"
+            app:destination="@id/viewFragment"
+            app:enterAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewFragment"
+        android:name="com.example.carrace.FragmentView"
+        android:label="fragment_view"
+        tools:layout="@layout/fragment_view" />
 </navigation>

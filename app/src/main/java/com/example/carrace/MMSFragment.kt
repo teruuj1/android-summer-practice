@@ -1,22 +1,28 @@
 package com.example.carrace
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.carrace.databinding.FragmentMmsBinding
 
-class MMSFragment : Fragment() {
+class MMSFragment : Fragment(R.layout.fragment_mms) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        return inflater.inflate(R.layout.fragment_mms, container, false)
-    }
+    private var binding: FragmentMmsBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentMmsBinding.bind(view)
+
+        binding?.run {
+            heading.setOnClickListener {
+                findNavController().navigate(R.id.action_mms_to_sport)
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

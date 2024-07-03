@@ -30,7 +30,7 @@ class MoodFragment : Fragment() {
                 val emailText = email.text.toString()
                 if (emailText.isNotEmpty()) {
                     findNavController().navigate(
-                        R.id.action_moodFragment_to_viewFragment,
+                        R.id.action_mood_to_view,
                         FragmentView.bundle(emailText)
                     )
                 } else {
