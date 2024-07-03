@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/home"
+        />
+
+    <item
+        android:id="@+id/bottom_mms"
+        android:icon="@drawable/baseline_mms_24"
+        android:title="@string/your_mms"
+        />
+
+    <item
+        android:id="@+id/bottom_sport"
+        android:icon="@drawable/baseline_sports_volleyball_24"
+        android:title="@string/sport"
+        />
+
+    <item
+        android:id="@+id/bottom_self_imp"
+        android:icon="@drawable/baseline_self_improvement_24"
+        android:title="@string/self_improvement"
+        />
+
+    <item
+        android:id="@+id/bottom_emotion"
+        android:icon="@drawable/baseline_emoji_emotions_24"
+        android:title="@string/your_mood"
+        />
+</menu>
