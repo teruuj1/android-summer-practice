@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">car race</string>
+    <string name="app_name">my app</string>
+    <string name="home">home</string>
+    <string name="your_mms">mms</string>
+    <string name="your_mood">mood</string>
+    <string name="sport">sport</string>
+    <string name="self_improvement">self-improvement</string>
+    <string name="mood">today i feel…</string>
+    <string name="send">send</string>
+    <string name="empty_field">to send a text, you need to fill in the field</string>
+    <string name="text_view">text view</string>
+    <string name="text">text</string>
 </resources>
