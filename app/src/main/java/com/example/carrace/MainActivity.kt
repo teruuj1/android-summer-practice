@@ -1,47 +1,83 @@
 package com.example.carrace
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.carrace.ui.theme.CarRaceTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.example.carrace.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
+    private var binding: ActivityMainBinding? = null
+    private var controller: NavController? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            CarRaceTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+        setContentView(R.layout.activity_main)
+
+        makeCurrentFragment(HomeFragment())
+
+        val navView: BottomNavigationView = findViewById(R.id.bottomNavigation)
+        navView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.bottom_home -> {
+                    makeCurrentFragment(HomeFragment())
+                    true
                 }
+
+                R.id.bottom_mms -> {
+                    makeCurrentFragment(MMSFragment())
+                    true
+                }
+
+                R.id.bottom_sport -> {
+                    makeCurrentFragment(SportFragment())
+                    true
+                }
+
+                R.id.bottom_self_imp -> {
+                    makeCurrentFragment(SelfImpFragment())
+                    true
+                }
+
+                R.id.bottom_emotion -> {
+                    makeCurrentFragment(MoodFragment())
+                    true
+                }
+
+                else -> false
             }
         }
     }
-}
+//
+//        binding = ActivityMainBinding.inflate(layoutInflater).also {
+//            setContentView(it.root)
+//        }
+//        controller = (supportFragmentManager.findFragmentById(R.id.fragmentView) as NavHostFragment)
+//            .navController
+//        controller?.let { navController ->
+//            binding?.bottomNavigation?.setupWithNavController(navController)
+//        }
+//    }
+//
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//
+//        controller?.navigateUp()
+//    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        binding = null
+//    }
+//
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CarRaceTheme {
-        Greeting("Android")
-    }
+    private fun makeCurrentFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.container, fragment)
+            commit()
+        }
 }
