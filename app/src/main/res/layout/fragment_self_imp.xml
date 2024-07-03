@@ -7,14 +7,24 @@
     tools:context=".SelfImpFragment">
 
     <TextView
-        android:id="@+id/heading"
+        android:id="@+id/tvHeading"
         style="@style/AppTitle"
         android:text="@string/self_improvement"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintVertical_bias="0.023" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCats"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeading"
+        tools:itemCount="7"
+        tools:listitem="@layout/item_cats" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_selfimp_to_mood"
             app:destination="@id/bottom_emotion" />
+        <action
+            android:id="@+id/action_selfimp_to_catDetail"
+            app:destination="@id/catDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/bottom_emotion"
@@ -56,4 +59,9 @@
         android:name="com.example.carrace.FragmentView"
         android:label="fragment_view"
         tools:layout="@layout/fragment_view" />
+    <fragment
+        android:id="@+id/catDetailFragment"
+        android:name="com.example.carrace.CatDetailFragment"
+        android:label="CatDetailFragment"
+        tools:layout="@layout/fragment_cat_detail"/>
 </navigation>
